@@ -15,12 +15,13 @@ def test_eq(a,b): test(a,b,operator.eq,'==')
 
 from pathlib import Path
 from IPython.core.debugger import set_trace
-from fastai import datasets
-import pickle, gzip, math, torch, matplotlib as mpl
+import pickle, gzip, math, torch, matplotlib as mpl,  matplotlib.pyplot as plt
 import matplotlib.pyplot as plt
 from torch import tensor
+from urllib.request import urlretrieve
 
-MNIST_URL='http://deeplearning.net/data/mnist/mnist.pkl'
+MNIST_URL='https://github.com/mnielsen/neural-networks-and-deep-learning/blob/master/data/mnist.pkl.gz?raw=true'
+
 
 def near(a,b): return torch.allclose(a, b, rtol=1e-3, atol=1e-5)
 def test_near(a,b): test(a,b,near)
